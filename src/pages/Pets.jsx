@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Pets({ toggleFavorite, addToCart, cart, favorites }) {
   const [filter, setFilter] = useState("All");
 
-  const base = import.meta.env.BASE_URL;
+  const base = "";
 
   const petsData = [
     { id: 1, name: "Max", type: "Dog", breed: "Golden Retriever", age: "2 Years", img: base + "images/golden-retriever-dog.jpg" },
