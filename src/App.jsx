@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
-import Pets from "./pages/Pets.jsx";
+import Pets from "./pages/Pets";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
