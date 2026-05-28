@@ -1,12 +1,43 @@
 import React, { useState } from "react";
-import petsData from "../data/petsData.js";
 
 function Pets({ toggleFavorite, addToCart, cart, favorites }) {
   const [filter, setFilter] = useState("All");
-  const filteredPets = filter === "All" ? petsData : petsData.filter((p) => p.type === filter);
+
+  const base = import.meta.env.BASE_URL;
+
+  const petsData = [
+    { id: 1, name: "Max", type: "Dog", breed: "Golden Retriever", age: "2 Years", img: base + "images/golden-retriever-dog.jpg" },
+    { id: 2, name: "Charlie", type: "Dog", breed: "Jack Russell", age: "3 Years", img: base + "images/jack-russell-dog.jpg" },
+    { id: 3, name: "Rocky", type: "Dog", breed: "Labrador", age: "4 Years", img: base + "images/labrador-retriever-dog.jpg" },
+    { id: 4, name: "Bella", type: "Dog", breed: "Yorkie", age: "1 Year", img: base + "images/yorkie-terrier-dog.jpg" },
+
+    { id: 5, name: "Luna", type: "Cat", breed: "Bengal", age: "1 Year", img: base + "images/bengal-cat.jpg" },
+    { id: 6, name: "Misty", type: "Cat", breed: "British Shorthair", age: "2 Years", img: base + "images/british-shorthair-cat.jpg" },
+    { id: 7, name: "Shadow", type: "Cat", breed: "Bombay", age: "3 Years", img: base + "images/bombay-cat.jpg" },
+    { id: 8, name: "Tiger", type: "Cat", breed: "Tabby", age: "2 Years", img: base + "images/tabby-cat.jpg" },
+
+    { id: 9, name: "Snowball", type: "Rabbit", breed: "American", age: "1 Year", img: base + "images/american-rabbit.jpg" },
+    { id: 10, name: "Clover", type: "Rabbit", breed: "European", age: "2 Years", img: base + "images/european-rabbit.jpg" },
+    { id: 11, name: "Bugs", type: "Rabbit", breed: "Holland Lop", age: "6 Months", img: base + "images/holland-lop-rabbit.jpg" },
+    { id: 12, name: "Thumper", type: "Rabbit", breed: "Netherland Dwarf", age: "3 Years", img: base + "images/netherland-dwarf-rabbit.jpg" },
+
+    { id: 13, name: "Rio", type: "Bird", breed: "Bullfinch", age: "2 Years", img: base + "images/bullfinch-bird.jpg" },
+    { id: 14, name: "Sunny", type: "Bird", breed: "Dove", age: "1 Year", img: base + "images/dove-bird.jpg" },
+    { id: 15, name: "Peaches", type: "Bird", breed: "Love Birds", age: "2 Years", img: base + "images/love-birds.jpg" },
+    { id: 16, name: "Pip", type: "Bird", breed: "Sparrow", age: "1 Year", img: base + "images/sparrow-bird.jpg" },
+
+    { id: 17, name: "Barnaby", type: "Duck", breed: "Pekin Duck", age: "1 Year", img: base + "images/pekin-duck.jpg" },
+    { id: 18, name: "Daisy", type: "Duck", breed: "Golden Cascade", age: "6 Months", img: base + "images/golden-cascadeduck.jpg" },
+    { id: 19, name: "Oliver", type: "Duck", breed: "Mallard", age: "1.5 Years", img: base + "images/mallard-duck.jpg" },
+    { id: 20, name: "Pip Jr", type: "Duck", breed: "Duckling", age: "2 Weeks", img: base + "images/yellow-babyduck.jpg" }
+  ];
+
+  const filteredPets =
+    filter === "All"
+      ? petsData
+      : petsData.filter((p) => p.type === filter);
 
   const getStatusLabel = (pet) => {
-    if (pet.status) return pet.status;
     const remainder = pet.id % 4;
     if (remainder === 1) return "1 left";
     if (remainder === 2) return "Limited";
@@ -15,44 +46,64 @@ function Pets({ toggleFavorite, addToCart, cart, favorites }) {
   };
 
   const getStatusClass = (label) => {
-    const cleanLabel = label.toLowerCase();
-    if (cleanLabel.includes("1 left")) return "low-stock";
-    if (cleanLabel.includes("limited")) return "limited";
-    if (cleanLabel.includes("out of stock")) return "out-of-stock";
+    const clean = label.toLowerCase();
+    if (clean.includes("1 left")) return "low-stock";
+    if (clean.includes("limited")) return "limited";
+    if (clean.includes("out of stock")) return "out-of-stock";
     return "available";
   };
 
   return (
     <div className="section">
       <h1 className="title">Available Pets 🐾</h1>
+
       <div className="filter-pill-container">
         {["All", "Dog", "Cat", "Rabbit", "Bird", "Duck"].map((type) => (
-          <button key={type} className={`filter-btn ${filter === type ? "active" : ""}`} onClick={() => setFilter(type)}>
+          <button
+            key={type}
+            className={`filter-btn ${filter === type ? "active" : ""}`}
+            onClick={() => setFilter(type)}
+          >
             {type}
           </button>
         ))}
       </div>
+
       <div className="pet-grid-modern">
         {filteredPets.map((pet) => {
           const statusLabel = getStatusLabel(pet);
           const statusClass = getStatusClass(statusLabel);
-          const isFav = favorites.some(f => f.id === pet.id);
-          const inCart = cart.some(c => c.id === pet.id);
+          const isFav = favorites.some((f) => f.id === pet.id);
+          const inCart = cart.some((c) => c.id === pet.id);
 
           return (
             <div className="pet-card-modern" key={pet.id}>
               <div className="pet-image-wrapper">
                 <img src={pet.img} alt={pet.name} />
-                <span className={`pet-status-badge ${statusClass}`}>{statusLabel}</span>
+                <span className={`pet-status-badge ${statusClass}`}>
+                  {statusLabel}
+                </span>
               </div>
+
               <div className="pet-info">
                 <h3>{pet.name}</h3>
                 <p className="breed">{pet.breed}</p>
+
                 <div className="pet-actions">
-                  <button className="favorite-btn" onClick={() => toggleFavorite(pet)}>
+                  <button
+                    className="favorite-btn"
+                    onClick={() => toggleFavorite(pet)}
+                  >
                     {isFav ? "❤️ Favorited" : "🤍 Favorite"}
                   </button>
-                  <button className="cart-btn" onClick={() => addToCart(pet)} disabled={inCart || statusLabel.includes("Out of stock")}>
+
+                  <button
+                    className="cart-btn"
+                    onClick={() => addToCart(pet)}
+                    disabled={
+                      inCart || statusLabel.includes("Out of stock")
+                    }
+                  >
                     {inCart ? "✔️ Already Added" : "🛒 Adopt"}
                   </button>
                 </div>
