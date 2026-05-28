@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://karen_nasreddine.github.io/pet-adoption",
+  "homepage": "https://naserddinekaren-source.github.io/pet-adoption/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

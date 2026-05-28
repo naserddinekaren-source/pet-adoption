@@ -1,17 +1,36 @@
-# React + Vite
+# 🐾 Pet Adoption Website (AdoptHere)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive pet adoption web application built using React + Vite.
 
-Currently, two official plugins are available:
+The goal of this project is to help users browse pets and adopt animals easily through a clean and interactive UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌐 Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👉 https://naserddinekaren-source.github.io/pet-adoption/
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-Project updated
+## 📌 Features
+
+- 🐶 Browse pets by category (Dogs, Cats, Birds, Rabbits, Ducks)
+- ❤️ Favorite pets system
+- 🛒 Adoption/cart feature
+- 📱 Fully responsive design (mobile + desktop)
+- 🎨 Modern UI with custom styling
+- ⚡ Fast performance using Vite
+
+---
+
+## 🛠️ Technologies Used
+
+- React.js
+- Vite
+- React Router DOM
+- JavaScript (ES6+)
+- CSS
+
+---
+
+## 📁 Project Structure
