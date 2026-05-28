@@ -100,9 +100,7 @@ function Pets({ toggleFavorite, addToCart, cart, favorites }) {
                   <button
                     className="cart-btn"
                     onClick={() => addToCart(pet)}
-                    disabled={
-                      inCart || statusLabel.includes("Out of stock")
-                    }
+                    disabled={inCart || statusLabel.includes("Out of stock")}
                   >
                     {inCart ? "✔️ Already Added" : "🛒 Adopt"}
                   </button>
