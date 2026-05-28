@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import petsData from "../data/petsData";
+import petsData from "../data/petsData.js";
 
 function Pets({ toggleFavorite, addToCart, cart, favorites }) {
   const [filter, setFilter] = useState("All");
