@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
 import Pets from "./pages/Pets";
-import petsData from "./data/petsData";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
